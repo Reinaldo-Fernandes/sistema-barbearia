@@ -5,7 +5,7 @@ Landing page de alta conversão para uma barbearia moderna em Natal (RN). O obje
 Feita com HTML, CSS e JavaScript puros, sem frameworks e sem etapa de build.
 
 <!-- Depois de publicar, troque pelos seus links e, se quiser, adicione um print em docs/preview.png -->
-**Demo:** `https://SEU-USUARIO.github.io/NOME-DO-REPOSITORIO/`
+**Demo:** `https://github.com/Reinaldo-Fernandes/sistema-barbearia/`
 
 <!-- ![Preview da página](docs/preview.png) -->
 

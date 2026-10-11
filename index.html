@@ -1,127 +1,563 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Barbearia Estilo</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>Barber Shop & Club | Barbearia em Petrópolis, Natal</title>
+  <meta name="description" content="Corte pensado para o formato do seu rosto, feito na hora em que você marcou. Barbearia em Petrópolis, Natal. Agende online em 30 segundos. Nota 4,9 no Google.">
+  <meta name="theme-color" content="#0a0a0a">
 
-  <!-- Fonts -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Barber Shop & Club | Tradição, estilo e o seu melhor visual.">
+  <meta property="og:description" content="Agendamento online, atendimento pontual e visagismo masculino em Petrópolis, Natal.">
+  <meta property="og:image" content="./src/img/barbearia.webp">
+
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='4' fill='%230a0a0a'/%3E%3Cpath d='M13 6h6l-4 20H9z' fill='%23c9a45c'/%3E%3C/svg%3E">
+
+  <!-- Fontes -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300..700;1,300..700&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap" rel="stylesheet">
-
-  <!-- Font Awesome -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700&family=Barlow:wght@400;500;600&display=swap" rel="stylesheet">
 
   <!-- CSS -->
   <link rel="stylesheet" href="./src/css/reset.css">
   <link rel="stylesheet" href="./src/css/styles.css">
   <link rel="stylesheet" href="./src/css/mobile.css" media="(max-width: 768px)">
+
+  <!-- Dados estruturados para o Google (SEO local) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "HairSalon",
+    "name": "Barber Shop & Club",
+    "description": "Barbearia com agendamento online, visagismo masculino e atendimento pontual.",
+    "image": "./src/img/barbearia.webp",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "Av. Afonso Pena, 1200",
+      "addressLocality": "Natal",
+      "addressRegion": "RN",
+      "addressCountry": "BR"
+    },
+    "openingHoursSpecification": [{
+      "@type": "OpeningHoursSpecification",
+      "dayOfWeek": ["Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
+      "opens": "09:00",
+      "closes": "20:00"
+    }],
+    "aggregateRating": { "@type": "AggregateRating", "ratingValue": "4.9", "reviewCount": "250" }
+  }
+  </script>
 </head>
 
 <body>
 
-  <header>
-    <h1><i class="fa-solid fa-scissors"></i> Barbearia Estilo</h1>
-    <nav>
-      <ul>
-        <li><a href="#" id="abrirModal"><i class="fa-solid fa-calendar-check"></i> Agendamento</a></li>
-      </ul>
-    </nav>
+  <!-- Ícones reutilizáveis -->
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true">
+    <symbol id="i-wa" viewBox="0 0 24 24"><path fill="currentColor" d="M17.47 14.38c-.3-.15-1.76-.87-2.03-.97-.27-.1-.47-.15-.67.15-.2.3-.77.97-.94 1.16-.17.2-.35.22-.64.07-.3-.15-1.26-.46-2.39-1.48-.88-.79-1.48-1.76-1.65-2.06-.17-.3-.02-.46.13-.6.13-.13.3-.35.45-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.03-.52-.07-.15-.67-1.61-.92-2.2-.24-.58-.49-.5-.67-.51h-.57c-.2 0-.52.07-.79.37-.27.3-1.04 1.02-1.04 2.48s1.07 2.88 1.21 3.07c.15.2 2.1 3.2 5.08 4.49.71.3 1.26.49 1.69.63.71.23 1.36.2 1.87.12.57-.09 1.76-.72 2-1.41.25-.69.25-1.29.17-1.41-.07-.13-.27-.2-.57-.35ZM12.05 21.79h-.01a9.87 9.87 0 0 1-5.03-1.38l-.36-.21-3.74.98 1-3.65-.24-.37a9.86 9.86 0 0 1-1.51-5.26c0-5.45 4.44-9.88 9.89-9.88 2.64 0 5.12 1.03 6.99 2.9a9.83 9.83 0 0 1 2.89 6.99c0 5.45-4.44 9.88-9.88 9.88ZM20.46 3.49A11.8 11.8 0 0 0 12.05 0C5.5 0 .16 5.34.16 11.89c0 2.1.55 4.14 1.59 5.95L.06 24l6.3-1.65a11.9 11.9 0 0 0 5.68 1.45h.01c6.55 0 11.89-5.34 11.89-11.89 0-3.18-1.24-6.17-3.48-8.42Z"/></symbol>
+    <symbol id="i-insta" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2" d="M7 3h10a4 4 0 0 1 4 4v10a4 4 0 0 1-4 4H7a4 4 0 0 1-4-4V7a4 4 0 0 1 4-4Zm5 5.5a3.5 3.5 0 1 0 0 7 3.5 3.5 0 0 0 0-7Zm5.2-2.2h.01"/></symbol>
+  </svg>
 
-    <!-- Modal de Agendamento -->
-    <div id="modalAgendamento" class="modal hidden" role="dialog" aria-modal="true" aria-labelledby="tituloModal">
-      <div class="modal-content">
-        <span class="fechar-modal" role="button" aria-label="Fechar Modal">&times;</span>
-        <h2 id="tituloModal"><i class="fa-solid fa-calendar-plus"></i> Agendar Horário</h2>
+  <a class="skip" href="#conteudo">Pular para o conteúdo</a>
 
-        <div id="mensagemFeedback" class="mensagem-feedback hidden">
-          Agendamento enviado com sucesso! ✅
-        </div>
-
-        <form id="formAgendamento">
-          <label for="nome">Nome:</label>
-          <input type="text" id="nome" name="nome" placeholder="Seu nome completo" required>
-
-          <label for="telefone">Telefone:</label>
-          <input type="tel" id="telefone" name="telefone" placeholder="(00) 00000-0000" required>
-
-          <label for="servico">Serviço:</label>
-          <select id="servico" name="servico" required>
-            <option value="">Selecione</option>
-            <option value="corte">Corte Masculino</option>
-            <option value="barba">Barba Estilizada</option>
-            <option value="limpeza">Limpeza de Pele</option>
-          </select>
-
-          <label for="data">Data:</label>
-          <input type="date" id="data" name="data" required>
-
-          <label for="hora">Hora:</label>
-          <input type="time" id="hora" name="hora" required>
-
-          <button type="submit" class="botao-agendar"><i class="fa-solid fa-check"></i> Confirmar</button>
-        </form>
+  <!-- ============ HEADER ============ -->
+  <header class="top">
+    <div class="wrap top-in">
+      <a href="#topo" class="logo" aria-label="Barber Shop & Club, início"><i></i>Barber Shop & Club</a>
+      <nav class="menu" aria-label="Principal">
+        <a href="#servicos">Serviços e preços</a>
+        <a href="#clube">Clube</a>
+        <a href="#equipe">Equipe</a>
+        <a href="#faq">Dúvidas</a>
+        <a href="#local">Como chegar</a>
+      </nav>
+      <div class="top-cta">
+        <a class="top-tel" data-tel href="#">Ligar</a>
+        <a class="btn btn-sm" data-action="agendar" href="#">Agendar</a>
       </div>
     </div>
   </header>
 
-  <main>
-    <div class="overlay">
-      <section id="servicos">
+  <main id="conteudo">
 
-        <!-- CORTE MASCULINO -->
-        <article class="servico servico-direita">
-          <div class="texto">
-            <h2><i class="fa-solid fa-scissors"></i> Corte Masculino</h2>
-            <p>Estilo moderno ou clássico, do jeito que você preferir. Atendimento com hora marcada e pontualidade.</p>
-          </div>
-          <div class="imagem">
-            <img src="./src/img/cabelo/corte-1.png" alt="Corte masculino">
-          </div>
-        </article>
+    <!-- ============ HERO ============ -->
+    <section class="hero tex" id="topo" aria-labelledby="hero-title">
+      <div class="wrap">
+        <div class="hero-grid">
 
-        <!-- BARBA ESTILIZADA -->
-        <article class="servico servico-esquerda">
-          <div class="imagem">
-            <img src="./src/img/barba/barba-1.jpeg" alt="Barba estilizada">
-          </div>
-          <div class="texto">
-            <h2><i class="fa-solid fa-user"></i> Barba Estilizada</h2>
-            <p>Modelagem de barba com navalha, toalha quente e produtos especiais pra dar aquele visual de respeito.</p>
-          </div>
-        </article>
+          <div>
+            <h1 id="hero-title">Tradição, estilo e o seu melhor visual.</h1>
 
-        <!-- LIMPEZA DE PELE -->
-        <article class="servico servico-direita">
-          <div class="texto">
-            <h2><i class="fa-solid fa-spa"></i> Limpeza de Pele</h2>
-            <p>Que tal uma pele mais limpa e saudável? Agende já sua limpeza de pele!</p>
-          </div>
-          <div class="imagem">
-            <img src="./src/img/limpeza/limpeza-1.png" alt="Limpeza de pele">
-          </div>
-        </article>
+            <p class="hero-sub">
+              Um corte pensado para o formato do seu rosto, feito na hora em que você marcou.
+              Barbearia em Petrópolis, Natal, com agendamento online em 30 segundos.
+            </p>
 
-      </section>
+            <ul class="hero-benefits ticks">
+              <li>Hora marcada é hora atendida, sem fila de espera</li>
+              <li>Visagismo masculino com barbeiros certificados</li>
+              <li>Café especial e a primeira cerveja ou chopp por nossa conta</li>
+            </ul>
 
-      <footer>
-        <div class="footer-content">
-          <p>© 2025 Barbearia Estilo</p>
-          <div class="footer-icons">
-            <a href="https://wa.me/5584999824438" target="_blank" aria-label="WhatsApp da Barbearia">
-              <i class="fab fa-whatsapp"></i>
-            </a>
-            <a href="https://www.instagram.com/barbeariaestilo" target="_blank" aria-label="Instagram da Barbearia">
-              <i class="fab fa-instagram"></i>
-            </a>
+            <div class="btn-row">
+              <a class="btn" data-action="agendar" href="#">Agendar meu horário</a>
+              <a class="btn btn-ghost" data-wa href="#" rel="noopener">
+                <svg aria-hidden="true"><use href="#i-wa"/></svg>
+                Chamar no WhatsApp
+              </a>
+            </div>
+            <p class="hero-micro">Leva cerca de 30 segundos. Ajuste grátis em até 3 dias se algo não ficar como você queria.</p>
+
+            <div class="hero-meta">
+              <span class="status" id="status" aria-live="polite"><span class="dot"></span><span id="status-text">Terça a sábado, das 9h às 20h</span></span>
+              <span>Av. Afonso Pena, 1200, Petrópolis, ao lado do Banco do Brasil. Estacionamento gratuito no local.</span>
+            </div>
+          </div>
+
+          <div class="hero-photo">
+            <div class="photo">
+              <img src="./src/img/barbearia.webp" width="1024" height="1024"
+                   alt="Interior da barbearia com cadeiras pretas, espelhos com moldura de madeira e parede de tijolos">
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <div class="stats">
+        <div class="wrap stats-in">
+          <div class="stat"><b>4,9</b><span><span class="stars" aria-hidden="true">★★★★★</span>nota no Google, com mais de 250 avaliações</span></div>
+          <div class="stat"><b>+10.000</b><span>atendimentos realizados em 4 anos de casa</span></div>
+          <div class="stat"><b>95%</b><span>dos clientes voltam para o próximo corte</span></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ DOR E SOLUÇÃO ============ -->
+    <section class="section">
+      <div class="wrap">
+        <div class="sec-head">
+          <h2>Você já passou por isso. Aqui é diferente.</h2>
+          <p class="lead">Ouvimos as mesmas queixas há anos e montamos a barbearia para resolvê-las uma a uma.</p>
+        </div>
+        <div class="pairs">
+          <div class="pair">
+            <div class="pain"><strong>Esperar uma hora para ser atendido</strong>Você chega no horário e o relógio não conta para o barbeiro.</div>
+            <div class="fix"><strong>Atendimento pontual, com hora marcada</strong><p>Você agenda online, chega e senta na cadeira. A tolerância de atraso é de 10 minutos.</p></div>
+          </div>
+          <div class="pair">
+            <div class="pain"><strong>Corte que não combina com o seu rosto</strong>Fica bonito na foto de referência e estranho no espelho.</div>
+            <div class="fix"><strong>Visagismo masculino</strong><p>Nossos barbeiros são certificados em visagismo e alinham o corte ao formato do seu rosto antes de pegar a máquina.</p></div>
+          </div>
+          <div class="pair">
+            <div class="pain"><strong>Dificuldade de achar horário que caiba na rotina</strong>Você liga, ninguém atende e o horário some.</div>
+            <div class="fix"><strong>Agenda online, aberta o tempo todo</strong><p>Escolha serviço, barbeiro e horário pelo celular, a qualquer hora, sem esperar resposta.</p></div>
           </div>
         </div>
-      </footer>
-    </div>
+      </div>
+    </section>
+
+    <!-- ============ SERVIÇOS E PREÇOS ============ -->
+    <section class="section alt tex" id="servicos">
+      <div class="wrap">
+        <div class="sec-head">
+          <h2>Serviços e preços</h2>
+          <p class="lead">Valores claros, sem surpresa na hora de pagar.</p>
+        </div>
+
+        <!-- Cards com foto (cada botão já abre o agendamento com o serviço escolhido) -->
+        <div class="svc-cards">
+          <article class="svc-card">
+            <div class="photo">
+              <img src="./src/img/cabelo/corte-degrade.webp" width="1024" height="1024" loading="lazy" alt="Corte masculino com degradê baixo e topo texturizado">
+            </div>
+            <div class="svc-body">
+              <h3>Corte masculino</h3>
+              <p>Estilo moderno ou clássico, do jeito que você preferir, com hora marcada e pontualidade.</p>
+              <div class="svc-foot">
+                <span class="svc-price">R$ 50<small>30 min</small></span>
+                <a class="btn btn-ghost btn-sm" data-action="agendar" data-service="corte" href="#">Agendar corte</a>
+              </div>
+            </div>
+          </article>
+
+          <article class="svc-card">
+            <div class="photo">
+              <img src="./src/img/barba/barba-1.webp" width="736" height="414" loading="lazy" alt="Homem de perfil com barba cheia e cabelo penteado para trás">
+            </div>
+            <div class="svc-body">
+              <h3>Barba completa</h3>
+              <p>Modelagem com navalha, toalha quente e produtos especiais para um visual de respeito.</p>
+              <div class="svc-foot">
+                <span class="svc-price">R$ 40<small>30 min</small></span>
+                <a class="btn btn-ghost btn-sm" data-action="agendar" data-service="barba" href="#">Agendar barba</a>
+              </div>
+            </div>
+          </article>
+
+          <article class="svc-card">
+            <div class="photo">
+              <img src="./src/img/limpeza/limpeza-1.webp" width="629" height="393" loading="lazy" alt="Cliente deitado recebendo limpeza de pele com esponjas">
+            </div>
+            <div class="svc-body">
+              <h3>Limpeza de pele</h3>
+              <p>Uma pele mais limpa e saudável, para completar o cuidado com o rosto.</p>
+              <div class="svc-foot">
+                <span class="svc-price" style="font-size:1.2rem">Consulte o valor</span>
+                <a class="btn btn-ghost btn-sm" data-action="agendar" data-service="limpeza" href="#">Agendar limpeza</a>
+              </div>
+            </div>
+          </article>
+        </div>
+
+        <!-- Tabela de preços + combo em destaque -->
+        <div class="services-grid">
+          <div class="board">
+            <div class="row"><div class="name">Corte social ou moderno<small>30 minutos</small></div><span class="leader"></span><span class="price">R$ 50</span></div>
+            <div class="row"><div class="name">Barba completa com toalha quente<small>30 minutos</small></div><span class="leader"></span><span class="price">R$ 40</span></div>
+            <div class="row"><div class="name">Sobrancelha<small>15 minutos</small></div><span class="leader"></span><span class="price">R$ 20</span></div>
+            <div class="row"><div class="name">Pigmentação de barba ou cabelo<small>20 minutos</small></div><span class="leader"></span><span class="price">R$ 35</span></div>
+            <div class="row"><div class="name">Limpeza de pele<small>valor informado no atendimento</small></div><span class="leader"></span><span class="price consulta">Consulte</span></div>
+            <p class="note">Pagamos no Pix, cartão de crédito, cartão de débito ou dinheiro.</p>
+          </div>
+
+          <aside class="feature">
+            <span class="chip">Mais procurado</span>
+            <h3>Combo barba e cabelo</h3>
+            <div class="big">R$ 80<small>50 minutos</small></div>
+            <p>Corte alinhado ao seu rosto e barba com toalha quente, no mesmo horário. É o melhor custo-benefício da casa: R$ 10 a menos do que os dois serviços separados.</p>
+            <a class="btn" data-action="agendar" data-service="combo" href="#">Agendar o combo</a>
+          </aside>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ CLUBE ============ -->
+    <section class="section club" id="clube">
+      <div class="wrap club-grid">
+        <div>
+          <h2>Clube de assinatura: corte sempre em dia, por um valor fixo.</h2>
+          <p class="lead">A partir do terceiro corte social no mês, o plano já sai mais barato do que pagar avulso.</p>
+        </div>
+        <div class="plan">
+          <div class="big">R$ 140<small>por mês</small></div>
+          <ul class="ticks">
+            <li>Cortes ilimitados</li>
+            <li>10% de desconto em outros produtos</li>
+          </ul>
+          <a class="btn" data-wa="Olá! Quero saber mais sobre o Clube de Assinatura." href="#" rel="noopener">Quero entrar para o clube</a>
+          <p class="fine">Consulte as condições do plano com a nossa equipe.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ DIFERENCIAIS ============ -->
+    <section class="section">
+      <div class="wrap">
+        <div class="sec-head">
+          <h2>O que faz o seu tempo valer a pena aqui</h2>
+        </div>
+        <div class="diffs">
+          <div class="diff"><h3>Pontualidade de verdade</h3><p>Hora marcada é hora atendida. Você planeja a sua agenda e a nossa cumpre.</p></div>
+          <div class="diff"><h3>Corte feito para o seu rosto</h3><p>Barbeiros certificados em visagismo masculino, em cortes clássicos e modernos.</p></div>
+          <div class="diff"><h3>Finalização com produtos premium</h3><p>O acabamento faz diferença no dia seguinte, quando você mesmo vai arrumar o cabelo.</p></div>
+          <div class="diff"><h3>Cortesias de alto nível</h3><p>Café especial, água e a primeira cerveja ou chopp por conta da casa.</p></div>
+          <div class="diff"><h3>Ambiente climatizado</h3><p>Ar-condicionado, boa música e jogos para o tempo passar leve enquanto você espera.</p></div>
+          <div class="diff"><h3>Estacionamento gratuito</h3><p>Vaga privativa na frente da barbearia, sem rodar quarteirão e sem pagar.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ GALERIA DE ESTILOS ============ -->
+    <section class="section alt tex" id="galeria">
+      <div class="wrap">
+        <div class="sec-head">
+          <h2>Estilos para você escolher</h2>
+          <p class="lead">Traga uma referência ou deixe o barbeiro sugerir o que combina com o seu rosto.</p>
+        </div>
+
+        <!-- Dica: troque estas fotos por cortes reais feitos na barbearia (mesmo nome de arquivo ou novo src). -->
+        <div class="gallery">
+          <figure>
+            <img src="./src/img/cabelo/corte-1.webp" width="1024" height="1024" loading="lazy" alt="Degradê baixo com topo texturizado e barba curta">
+            <figcaption>Degradê com topo texturizado</figcaption>
+          </figure>
+          <figure>
+            <img src="./src/img/cabelo/corte-2.webp" width="1024" height="1024" loading="lazy" alt="Corte mullet moderno com bigode">
+            <figcaption>Mullet moderno com bigode</figcaption>
+          </figure>
+          <figure>
+            <img src="./src/img/barba/barba-3.webp" width="800" height="533" loading="lazy" alt="Barba e bigode modelados, com o barbeiro finalizando o desenho">
+            <figcaption>Barba e bigode desenhados</figcaption>
+          </figure>
+          <figure>
+            <img src="./src/img/limpeza/limpeza-2.webp" width="528" height="270" loading="lazy" alt="Cliente com máscara facial durante limpeza de pele">
+            <figcaption>Limpeza de pele</figcaption>
+          </figure>
+        </div>
+
+        <!--
+          ANTES E DEPOIS (opcional): quando tiver fotos reais de clientes autorizados, apague os
+          comentários abaixo e troque os caminhos das imagens. O slider já funciona via script.js.
+
+        <div class="ba-grid">
+          <div class="ba">
+            <div class="layer after"><img src="./src/img/antes-depois/1-depois.webp" alt="Cliente depois do corte"></div>
+            <div class="layer before"><img src="./src/img/antes-depois/1-antes.webp" alt="Cliente antes do corte"></div>
+            <span class="tag l">Antes</span><span class="tag r">Depois</span>
+            <span class="bar"></span>
+            <input type="range" min="5" max="95" value="50" aria-label="Comparar antes e depois, exemplo 1">
+          </div>
+        </div>
+        -->
+
+        <div class="gallery-foot">
+          <span>Mais cortes e bastidores no nosso Instagram.</span>
+          <a class="btn btn-ghost btn-sm" data-insta href="#" target="_blank" rel="noopener">
+            <svg aria-hidden="true"><use href="#i-insta"/></svg>
+            Ver o Instagram
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ EQUIPE ============ -->
+    <section class="section" id="equipe">
+      <div class="wrap">
+        <div class="sec-head">
+          <h2>Quem vai cuidar de você</h2>
+          <p class="lead">Quatro barbeiros fixos na equipe. Escolha o seu na hora de agendar.</p>
+        </div>
+
+        <!--
+          Para cada barbeiro: troque "Nome do barbeiro" (e remova data-placeholder), a especialidade,
+          e substitua a div.ph por <div class="photo"><img src="./src/img/equipe/nome.webp" alt="Nome, barbeiro"></div>
+        -->
+        <div class="team">
+          <article class="barber">
+            <div class="ph" role="img" aria-label="Espaço para a foto do barbeiro 1">Foto</div>
+            <h3 data-placeholder>Nome do barbeiro</h3>
+            <p>Especialidade, por exemplo degradê e barba</p>
+            <a class="btn btn-ghost btn-sm" data-action="agendar" href="#">Agendar com ele</a>
+          </article>
+          <article class="barber">
+            <div class="ph" role="img" aria-label="Espaço para a foto do barbeiro 2">Foto</div>
+            <h3 data-placeholder>Nome do barbeiro</h3>
+            <p>Especialidade, por exemplo corte clássico</p>
+            <a class="btn btn-ghost btn-sm" data-action="agendar" href="#">Agendar com ele</a>
+          </article>
+          <article class="barber">
+            <div class="ph" role="img" aria-label="Espaço para a foto do barbeiro 3">Foto</div>
+            <h3 data-placeholder>Nome do barbeiro</h3>
+            <p>Especialidade, por exemplo visagismo</p>
+            <a class="btn btn-ghost btn-sm" data-action="agendar" href="#">Agendar com ele</a>
+          </article>
+          <article class="barber">
+            <div class="ph" role="img" aria-label="Espaço para a foto do barbeiro 4">Foto</div>
+            <h3 data-placeholder>Nome do barbeiro</h3>
+            <p>Especialidade, por exemplo pigmentação</p>
+            <a class="btn btn-ghost btn-sm" data-action="agendar" href="#">Agendar com ele</a>
+          </article>
+        </div>
+
+        <div class="cert"><strong>Todos certificados em visagismo masculino</strong> e especializados em cortes clássicos e modernos.</div>
+      </div>
+    </section>
+
+    <!-- ============ PROVA SOCIAL ============ -->
+    <section class="section alt tex">
+      <div class="wrap proof">
+        <blockquote>
+          <p>“Excelente atendimento e pontualidade incrível. O melhor corte da cidade!”</p>
+          <footer>Gabriel S., cliente, avaliação no Google</footer>
+        </blockquote>
+        <div class="gscore">
+          <div class="n">4,9</div>
+          <div class="stars" aria-hidden="true">★★★★★</div>
+          <p>Mais de 250 avaliações no Google e 95% dos clientes que voltam.</p>
+          <a class="btn btn-ghost btn-sm" data-google href="#" target="_blank" rel="noopener">Ler avaliações no Google</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ COMO FUNCIONA ============ -->
+    <section class="section">
+      <div class="wrap">
+        <div class="sec-head">
+          <h2>Do celular à cadeira em três passos</h2>
+        </div>
+        <ol class="steps">
+          <li><h3>Escolha</h3><p>Selecione o serviço e o barbeiro que você prefere.</p></li>
+          <li><h3>Reserve</h3><p>Marque o melhor horário para a sua rotina em cerca de 30 segundos.</p></li>
+          <li><h3>Chegue e relaxe</h3><p>Estacione na porta, pegue um café e seja atendido na hora marcada.</p></li>
+        </ol>
+        <div class="btn-row" style="margin-top:32px">
+          <a class="btn" data-action="agendar" href="#">Agendar meu horário</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ GARANTIA ============ -->
+    <section class="section alt tex">
+      <div class="wrap">
+        <div class="guarantee">
+          <div class="days">3<small>dias</small></div>
+          <div>
+            <h2>Não gostou? Ajustamos de graça.</h2>
+            <p>Se você notar qualquer imperfeição no corte em até 3 dias após o serviço, volte e a gente corrige sem custo.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ FAQ ============ -->
+    <section class="section" id="faq">
+      <div class="wrap">
+        <div class="sec-head">
+          <h2>Perguntas frequentes</h2>
+        </div>
+        <div class="faq">
+          <details>
+            <summary>Preciso agendar ou posso ir direto?</summary>
+            <p>Recomendamos agendar online para garantir o seu horário sem fila. É rápido e você escolhe o barbeiro.</p>
+          </details>
+          <details>
+            <summary>Como funciona o estacionamento?</summary>
+            <p>É gratuito, na frente do estabelecimento, para todos os clientes.</p>
+          </details>
+          <details>
+            <summary>Vocês atendem por assinatura?</summary>
+            <p>Sim. Temos planos mensais com vantagens exclusivas, como o Clube de R$ 140 por mês com cortes ilimitados e 10% de desconto em outros produtos.</p>
+          </details>
+          <details>
+            <summary>Quais formas de pagamento vocês aceitam?</summary>
+            <p>Pix, cartão de crédito, cartão de débito e dinheiro.</p>
+          </details>
+          <details>
+            <summary>Atendem crianças?</summary>
+            <p>Sim, a partir de 5 anos.</p>
+          </details>
+          <details>
+            <summary>E se eu me atrasar ou precisar cancelar?</summary>
+            <p>Temos tolerância de 10 minutos de atraso. Para cancelar ou remarcar, avise com no mínimo 2 horas de antecedência.</p>
+          </details>
+          <details>
+            <summary>Quais são os dias e horários de funcionamento?</summary>
+            <p>De terça a sábado, das 9h às 20h. Fechamos às segundas e aos domingos.</p>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ CTA FINAL + LOCAL ============ -->
+    <section class="section final alt tex" id="local">
+      <div class="wrap final-grid">
+        <div>
+          <h2>Pronto para sair com o seu melhor visual?</h2>
+          <p class="lead">Escolha o horário agora e chegue sem fila.</p>
+          <div class="btn-row">
+            <a class="btn" data-action="agendar" href="#">Agendar meu horário</a>
+            <a class="btn btn-ghost" data-wa href="#" rel="noopener">Chamar no WhatsApp</a>
+          </div>
+          <div class="info">
+            <div><b>Endereço</b><span>Av. Afonso Pena, 1200, Petrópolis, Natal, RN, ao lado do Banco do Brasil</span></div>
+            <div><b>Horário</b><span>Terça a sábado, das 9h às 20h. Segunda e domingo: fechado.</span></div>
+            <div><b>WhatsApp</b><span><a data-tel href="#">Ligar</a></span></div>
+          </div>
+        </div>
+        <div class="map">
+          <iframe title="Mapa da Barber Shop & Club" loading="lazy" referrerpolicy="no-referrer-when-downgrade"
+            src="https://www.google.com/maps?q=Av.+Afonso+Pena,+1200,+Petr%C3%B3polis,+Natal+-+RN&output=embed"></iframe>
+        </div>
+      </div>
+    </section>
+
   </main>
 
-  <!-- script.js continua carregando para o formulário -->
+  <!-- ============ RODAPÉ ============ -->
+  <footer class="site">
+    <div class="wrap foot">
+      <div>
+        <strong>Barber Shop & Club</strong><br>
+        Tradição, estilo e o seu melhor visual.<br>
+        CNPJ 00.000.000/0001-00
+      </div>
+      <nav aria-label="Rodapé">
+        <a data-insta href="#" target="_blank" rel="noopener">Instagram</a>
+        <a data-google href="#" target="_blank" rel="noopener">Google</a>
+        <a href="#">Política de privacidade</a>
+      </nav>
+      <span>© <span id="ano">2026</span> Barber Shop & Club</span>
+    </div>
+  </footer>
+
+  <!-- Barra fixa (celular) e botão flutuante (computador) -->
+  <div class="dock">
+    <a class="btn" data-action="agendar" href="#">Agendar horário</a>
+    <a class="btn btn-ghost" data-wa href="#" rel="noopener">WhatsApp</a>
+  </div>
+  <a class="wa-float" data-wa href="#" rel="noopener" aria-label="Chamar no WhatsApp">
+    <svg aria-hidden="true"><use href="#i-wa"/></svg>
+  </a>
+
+  <!-- ============ MODAL DE AGENDAMENTO ============ -->
+  <dialog class="modal" id="modalAgendamento" aria-labelledby="tituloModal">
+    <div class="modal-in">
+      <button class="modal-close" type="button" id="fecharModal" aria-label="Fechar">&times;</button>
+      <h2 id="tituloModal">Agendar horário</h2>
+      <p class="sub">Escolha o serviço e o horário. Enviamos o pedido pelo WhatsApp e a barbearia confirma com você.</p>
+
+      <form id="formAgendamento" novalidate>
+        <div class="field">
+          <label for="nome">Seu nome</label>
+          <input type="text" id="nome" name="nome" placeholder="Nome e sobrenome" autocomplete="name" required>
+          <p class="field-error" id="erroNome" role="alert"></p>
+        </div>
+
+        <div class="field">
+          <label for="servico">Serviço</label>
+          <select id="servico" name="servico" required>
+            <option value="">Selecione</option>
+            <option value="corte">Corte social ou moderno, R$ 50 (30 min)</option>
+            <option value="barba">Barba completa, R$ 40 (30 min)</option>
+            <option value="combo">Combo barba e cabelo, R$ 80 (50 min)</option>
+            <option value="sobrancelha">Sobrancelha, R$ 20 (15 min)</option>
+            <option value="pigmentacao">Pigmentação, R$ 35 (20 min)</option>
+            <option value="limpeza">Limpeza de pele (consulte o valor)</option>
+          </select>
+          <p class="field-error" id="erroServico" role="alert"></p>
+        </div>
+
+        <div class="field">
+          <label for="barbeiro">Barbeiro</label>
+          <select id="barbeiro" name="barbeiro">
+            <option value="">Sem preferência</option>
+          </select>
+        </div>
+
+        <div class="field-row">
+          <div class="field">
+            <label for="data">Data</label>
+            <input type="date" id="data" name="data" required>
+          </div>
+          <div class="field">
+            <label for="hora">Horário</label>
+            <select id="hora" name="hora" required>
+              <option value="">Selecione</option>
+            </select>
+          </div>
+        </div>
+        <p class="field-error" id="erroData" role="alert"></p>
+
+        <button class="btn" type="submit">Enviar pedido pelo WhatsApp</button>
+        <p class="form-note">Atendemos de terça a sábado, das 9h às 20h. Cancelamentos com 2 horas de antecedência.</p>
+      </form>
+    </div>
+  </dialog>
+
+  <!-- Aviso de envio -->
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
   <script src="./src/js/script.js"></script>
 </body>
 </html>
